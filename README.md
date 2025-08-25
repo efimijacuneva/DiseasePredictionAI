@@ -1,8 +1,8 @@
 
 # DiseasePredictionAI
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0%2B-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)  
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0%2B-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 > Disease Prediction using Machine Learning models and a Flask web interface
@@ -22,7 +22,6 @@
 - [Testing & Evaluation](#testing--evaluation)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ## About
 This repository demonstrates a reproducible pipeline for disease prediction based on a large symptom → disease dataset. The pipeline trains multiple machine learning models (sklearn-based) and exposes an easy-to-use Flask web interface for inference. The project is intended for educational and research purposes (student project).
