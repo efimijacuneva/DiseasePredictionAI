@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="/static/select2.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <h1 class="text-2xl font-bold mb-6 text-center">AI Disease Prediction System</h1>
+        <form id="symptom-form" method="POST" action="/predict" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 mb-2">Select Symptoms</label>
+                <select name="symptoms[]" id="symptoms" multiple="multiple" class="w-full p-2 border rounded">
+                    {% for feature in features %}
+                    <option value="{{ feature }}">{{ feature }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Predict</button>
+            <button type="button" onclick="$('#symptoms').val(null).trigger('change');" class="w-full bg-gray-500 text-white p-2 rounded mt-2">Clear</button>
+        </form>
+        <div id="result" class="mt-4 text-center"></div>
+    </div>
+    <script src="/static/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#symptoms').select2({
+                placeholder: "Select symptoms",
+                allowClear: true,
+                width: '100%'
+            });
+            // Ensure Select2 updates <select> values on form submit
+            $('#symptom-form').on('submit', function() {
+                $('#symptoms').trigger('change');
+            });
+        });
+    </script>
+</body>
+</html>
