@@ -16,8 +16,8 @@ from preprocess import load_and_preprocess_data
 X, y, label_encoders, feature_names = load_and_preprocess_data()
 
 # Stratified sampling of 60,000 rows
-print("Taking a stratified subset of the data (60,000 rows)...")
-subset_size = 60000 
+print("Taking a stratified subset of the data (120,000 rows)...")
+subset_size = 120000 
 if X.shape[0] > subset_size:
     X_subset, _, y_subset, _ = train_test_split(
         X, y, train_size=subset_size, stratify=y, random_state=42
@@ -27,7 +27,7 @@ if X.shape[0] > subset_size:
     unique_diseases = len(np.unique(y))
     print(f"Number of unique diseases in the subset: {unique_diseases}")
 else:
-    print("The dataset is smaller than 60,000 rows, the entire dataset is used.")
+    print("The dataset is smaller than 120,000 rows, the entire dataset is used.")
 print(f"Subset: {X.shape[0]} rows, {X.shape[1]} symptoms")
 
 # Merging rare diseases into the subset and recoding
@@ -109,7 +109,7 @@ estimators = [
     ("XGBoost", models["XGBoost"])
 ]
 try:
-    ensemble = VotingClassifier(estimators, voting='soft', weights=[0.4, 0.4, 0.2])
+    ensemble = VotingClassifier(estimators, voting='soft', weights=[0.3, 0.5, 0.2])
     ensemble.fit(X_train, y_train)
     y_pred_ensemble = ensemble.predict(X_test)
     ensemble_acc = accuracy_score(y_test, y_pred_ensemble)

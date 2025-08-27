@@ -43,5 +43,5 @@ def load_and_preprocess_data(path='data/dataset.csv'):
     y = df['diseases']
     feature_names = X.columns.tolist()
     
-    print(f"Data prepared: {X.shape[0]} rows, {X.shape[1]} symptoms, {len(np.unique(y))} дијагнози")
+    print(f"Data prepared: {X.shape[0]} rows, {X.shape[1]} symptoms, {len(np.unique(y))} diagnoses")
     return X, y, label_encoders, feature_names
