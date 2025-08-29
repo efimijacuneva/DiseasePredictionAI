@@ -35,7 +35,6 @@
                 allowClear: true,
                 width: '100%'
             });
-            // Ensure Select2 updates <select> values on form submit
             $('#symptom-form').on('submit', function() {
                 $('#symptoms').trigger('change');
             });

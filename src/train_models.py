@@ -15,7 +15,7 @@ from preprocess import load_and_preprocess_data
 # Data loading and preprocessing
 X, y, label_encoders, feature_names = load_and_preprocess_data()
 
-# Stratified sampling of 60,000 rows
+# Stratified sampling of 120,000 rows
 print("Taking a stratified subset of the data (120,000 rows)...")
 subset_size = 120000 
 if X.shape[0] > subset_size:
